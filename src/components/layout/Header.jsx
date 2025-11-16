@@ -6,7 +6,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <a href="#" className="flex items-center gap-2">
           <img src="/assets/logopcc.png" alt="Logo PCC" className="h-8 w-8" loading="lazy" />
-          <span className="text-sm font-semibold text-gray-900">PCC Politeknik Negeri Semarang</span>
+          <span className="text-sm font-semibold text-gray-900">Polytechnic Computer Club</span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-gray-600 sm:flex">
           <a href="#tentang" className="hover:text-gray-900">Tentang</a>
