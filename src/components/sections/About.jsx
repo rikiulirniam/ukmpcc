@@ -10,9 +10,7 @@ export default function About() {
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl">Tentang PCC</h2>
           <p className="mt-2 text-gray-600">
-            PCC (Programming Community Club) adalah UKM di Politeknik Negeri Semarang yang mewadahi
-            mahasiswa untuk belajar pemrograman, desain, jaringan, dan multimedia melalui komunitas
-            yang suportif dan kegiatan yang konsisten.
+            UKM Polytechnic Computer Club yang disingkat UKM PCC merupakan salah satu Unit Kegiatan Mahasiswa di Politeknik Negeri Semarang yang sudah cukup berumur. Dalam kiprahnya UKM PCC memberikan banyak kontribusi kepada institusi POLINES sendiri lewat prestasi-prestasi yang telah diraih oleh UKM PCC.
           </p>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

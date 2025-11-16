@@ -12,7 +12,7 @@ export default function Hero() {
           loading="lazy"
         />
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-          Programming Community Club
+          Polytechnic Computer Club
         </h1>
         <p className="max-w-2xl text-gray-600">
           Komunitas pemrograman di Politeknik Negeri Semarang (Polines) yang belajar, berkarya,
