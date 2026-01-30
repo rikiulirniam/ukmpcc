@@ -18,15 +18,16 @@ const items = [
 
 export default function Testimonials() {
   return (
-    <section id="testimoni" className="bg-sky-50">
+    <section id="testimoni" className="bg-primary-softer">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:py-20">
-        <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl">Testimoni</h2>
+        <h2 className="bg-gradient-to-r from-primary-dark to-accent-indigo bg-clip-text text-2xl font-semibold text-transparent sm:text-3xl">Testimoni</h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((t) => (
-            <figure key={t.name} className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
+            <figure key={t.name} className="relative overflow-hidden rounded-2xl border border-primary/30 bg-white p-5 shadow-sm transition hover:shadow-md">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent-blue/5 to-accent-indigo/5 opacity-0 transition group-hover:opacity-100" />
               <blockquote className="text-gray-700">“{t.quote}”</blockquote>
               <figcaption className="mt-3 text-sm text-gray-500">
-                <span className="font-medium text-gray-800">{t.name}</span> — {t.role}
+                <span className="font-medium text-primary-dark">{t.name}</span> — {t.role}
               </figcaption>
             </figure>
           ))}
