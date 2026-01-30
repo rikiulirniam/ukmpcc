@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Structure() {
   const canvasRef = useRef(null)
+  const [selectedMember, setSelectedMember] = useState(null)
+  const nodesRef = useRef([])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -9,6 +11,9 @@ export default function Structure() {
 
     const ctx = canvas.getContext('2d')
     const scale = window.devicePixelRatio || 1
+    
+    // Reset nodes array
+    nodesRef.current = []
     
     // Set canvas size
     canvas.width = 1020 * scale
@@ -26,6 +31,9 @@ export default function Structure() {
 
     // Function to draw a node with image
     const drawNode = (x, y, text, imagePath) => {
+      // Store node info for click detection
+      nodesRef.current.push({ x, y, text, imagePath, width: 140, height: 80 })
+      
       // Draw rounded rectangle
       const width = 140
       const height = 80
@@ -210,6 +218,30 @@ export default function Structure() {
         }
       }
     })
+
+    // Add click event listener
+    const handleCanvasClick = (event) => {
+      const rect = canvas.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
+      
+      // Check if click is inside any node
+      nodesRef.current.forEach(node => {
+        const dx = x - node.x
+        const dy = y - node.y
+        
+        if (Math.abs(dx) < node.width / 2 && Math.abs(dy) < node.height / 2) {
+          setSelectedMember(node)
+        }
+      })
+    }
+
+    canvas.addEventListener('click', handleCanvasClick)
+    canvas.style.cursor = 'pointer'
+
+    return () => {
+      canvas.removeEventListener('click', handleCanvasClick)
+    }
   }, [])
 
   return (
@@ -232,6 +264,38 @@ export default function Structure() {
           />
         </div>
       </div>
+
+      {/* Modal popup */}
+      {selectedMember && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div 
+            className="relative max-w-2xl rounded-2xl bg-white p-6 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedMember(null)}
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            
+            <div className="text-center">
+              <h3 className="mb-4 text-2xl font-bold text-gray-900">{selectedMember.text}</h3>
+              <div className="overflow-hidden rounded-lg">
+                <img
+                  src={selectedMember.imagePath}
+                  alt={selectedMember.text}
+                  className="mx-auto max-h-96 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

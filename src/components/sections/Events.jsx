@@ -1,33 +1,28 @@
 const mainEvent = { 
-  date: 'Jul 2025', 
   title: 'TechComFest', 
-  desc: 'Festival komputer dan teknologi dengan workshop dan seminar.',
+  desc: 'Techcomfest adalah salah satu wujud misi dan peran aktif UKM Polytechnic Computer Club dalam mengikuti perkembangan teknologi dalam bidang IT.',
   image: '/assets/event/techcomfest.jpg'
 }
 
 const otherEvents = [
   { 
-    date: 'Mar 2025', 
     title: 'CAKRA', 
-    desc: 'Kompetisi antar kampus dalam bidang teknologi dan inovasi.',
+    desc: 'Pengenalan UKM PCC kepada mahasiswa baru pada saat acara WaRNA.',
     image: '/assets/event/cakra.jpg'
   },
   { 
-    date: 'Apr 2025', 
     title: 'GTP (Goes To Public)', 
     desc: 'Program sosialisasi dan pengenalan teknologi kepada masyarakat umum.',
-    image: '/assets/event/GTP.jpg'
+    image: '/assets/event/gtp.jpg'
   },
   { 
-    date: 'Mei 2025', 
     title: 'HUT PCC', 
     desc: 'Perayaan hari ulang tahun Polytechnic Computer Club.',
     image: '/assets/event/hut.jpg'
   },
   { 
-    date: 'Jun 2025', 
     title: 'Open House', 
-    desc: 'Pengenalan UKM PCC kepada mahasiswa baru dan umum.',
+    desc: 'Pengenalan UKM PCC secara mendalam kepada mahasiswa.',
     image: '/assets/event/openhouse.jpg'
   },
 ]
@@ -51,10 +46,7 @@ export default function Events() {
               />
             </div>
             <div className="flex flex-col justify-center p-6 md:p-8">
-              <span className="inline-flex w-fit items-center gap-2 text-sm font-medium text-primary-dark">
-                <span className="h-2 w-2 rounded-full bg-primary-dark" /> {mainEvent.date}
-              </span>
-              <h3 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">{mainEvent.title}</h3>
+              <h3 className="text-3xl font-bold text-gray-900 md:text-4xl">{mainEvent.title}</h3>
               <p className="mt-3 text-base text-gray-600 md:text-lg">{mainEvent.desc}</p>
             </div>
           </div>
@@ -73,10 +65,7 @@ export default function Events() {
                 />
               </div>
               <div className="p-3">
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-dark">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary-dark" /> {e.date}
-                </span>
-                <h3 className="mt-1.5 text-sm font-semibold text-gray-900">{e.title}</h3>
+                <h3 className="text-sm font-semibold text-gray-900">{e.title}</h3>
                 <p className="mt-1 text-xs text-gray-600">{e.desc}</p>
               </div>
             </article>
